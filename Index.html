@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GameOver Store </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Pantalla de bienvenida -->
+  <div class="welcome-screen" id="welcomeScreen">
+    <h1>¡Bienvenido a la Tienda Gamer espero que te guste y recomiendanos!</h1>
+    <button class="btn-gamer" onclick="enterSite()">Entrar</button>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar hidden">
+
+    <div class="logo">🎮 Tienda Gamer</div>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,fr,it,pt,zh-CN'
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+<!-- Traductor -->
+<div id="google_translate_element" class="translate-box"></div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <ul class="menu">
+      <li onclick="mostrarSeccion('inicio')">Inicio</li>
+      <li onclick="mostrarSeccionAnimada('categorias')">Categorías</li>
+      <li onclick="mostrarSeccion('nosotros')">Sobre Nosotros</li>
+      <li onclick="mostrarSeccion('contacto')">Contáctanos</li>
+      <li onclick="mostrarSeccion('Blog')">Blog</li>
+      <li onclick="mostrarSeccion('galeria')">Galería</li>
+      <li onclick="mostrarSeccion('comentarios')">Comentarios</li>
+    </ul>
+
+    <div class="controls">
+      <button id="music-toggle" onclick="toggleMusic()">🎵</button>
+      <input type="range" id="volumen" min="0" max="1" step="0.1" onchange="cambiarVolumen(this.value)">
+      <div class="carrito-icono" onclick="toggleCarrito()">🛒</div>
+    </div>
+  </header>
+
+  <!-- Carrito -->
+  <div id="carrito" class="carrito hidden">
+    <h2>Carrito</h2>
+    <ul id="carrito-lista"></ul>
+    <button onclick="pagar()">Pagar</button>
+  </div>
+
+
+  <!-- Contenido principal -->
+  <div class="content hidden">
+
+    <!-- Sección de inicio con juegos destacados -->
+    <section id="inicio" class="seccion">
+      <h2>🎯 Más comprados</h2>
+      <div class="juegos-destacados">
+        <!-- Juego destacado 1 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="assets/mario kart 8.jpg" alt="Juego Destacado 1">
+            </div>
+            <div class="card-back">
+              <p>MARIO KART 8 ES JUEGO DE CARRERAS ALOCADAS, DESAFIA A TUS AMIGOS, ELIGE TU PERSONAJE Y A TODA VELOCIDAD!</p>
+              <button onclick="añadirAlCarrito('Mario Kart 8')">Añadir al carrito</button>
+              <p class="precio">$39.99</p> <!-- Puedes cambiar el precio fácilmente -->
+            </div>
+          </div>
+        </div>
+        <!-- Juego destacado 2 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="assets/smash.jpg" alt="Juego Destacado 2">
+            </div>
+            <div class="card-back">
+              <p>SELECCIONA TU PERSONAJE FAVORITO Y A LUCHAR PARA QUE DAR EN PRIMER LUGAR</p>
+              <button onclick="añadirAlCarrito('Smash Bros')">Añadir al carrito</button>
+              <p class="precio">$39.99</p>
+            </div>
+          </div>
+        </div>
+        <!-- Juego destacado 3 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="assets/amongus.jpg" alt="Juego Destacado 3">
+            </div>
+            <div class="card-back">
+              <p>10 TRIPULANTES UN ASESINO!! QUIEN PODRIAS SER...ACASO ERES TU?!</p>
+              <button onclick="añadirAlCarrito('Amongus')">Añadir al carrito</button>
+              <p class="precio">$39.99</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Sección Categorías (botones para acceder) -->
+    <section id="categorias" class="seccion hidden">
+      <h2>Categorías</h2>
+      <div class="botones-categorias-fijas">
+        <button class="btn-categoria" onclick="mostrarCategoria('nintendo')">Nintendo</button>
+        <button class="btn-categoria" onclick="mostrarCategoria('playstation')">PlayStation</button>
+        <button class="btn-categoria" onclick="mostrarCategoria('xbox')">Xbox</button>
+        <button class="btn-categoria" onclick="mostrarCategoria('pc')">PC</button>
+      </div>
+    </section>
+<!-- Sección Nintendo -->
+<section id="nintendo" class="seccion hidden">
+  <h2>🎮 Juegos de Nintendo</h2>
+  <div class="contenedor-juegos">
+    <!-- Tarjeta 1 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/nintendo1.jpg" alt="MARIO ODDYSEY">
+        </div>
+        <div class="card-back">
+          <p>JUEGO DE AVENTURAS EN MUNDO ABIERTO CON MECÁNICAS ÚNICAS. ¡CONTROLA A MARIO Y EXPLORA REINOS INCREÍBLES!</p>
+          <button onclick="añadirAlCarrito('MARIO ODDYSEY')">Añadir al carrito</button>
+          <p class="precio">$59.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Tarjeta 2 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/mario kart 8.jpg" alt="Mario Kart">
+        </div>
+        <div class="card-back">
+          <p>COMPITE CON TUS AMIGOS PARA VER QUEDA EN PRIMERA LUGAR, SELECCIONA A TU PERSONAJE FAVORITO Y A TODA VELOCIDAD!</p>
+          <button onclick="añadirAlCarrito('Nintendo Juego 2')">Añadir al carrito</button>
+          <p class="precio">$79.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Tarjetas 3 al 10 -->
+    <!-- Copia este bloque y cambia el número (3 al 10) -->
+    <!-- Ejemplo Tarjeta 3 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/nintendo3.jpg" alt="Nintendo Juego minecraft history">
+        </div>
+        <div class="card-back">
+          <p>AVENTURA DE MINECRAFT CON HISTORIA EMOCIONANTE. ¡ENFRENTA AL WITHER Y SALVA EL MUNDO! </p>
+          <button onclick="añadirAlCarrito('Minecraft history')">Añadir al carrito</button>
+          <p class="precio">$99.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/smash.jpg" alt="Smash Bros">
+        </div>
+        <div class="card-back">
+          <p>ELIGE TU PERSONAJE FAVORITO Y PELEA PUÑO A PUÑO CON TUS AMIGOS!</p>
+          <button onclick="añadirAlCarrito('Smash Bros')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/amongus.jpg" alt="Among us ">
+        </div>
+        <div class="card-back">
+          <p>JUEGO DE ESTRATEGIA Y ENGAÑO. ¡ENCUENTRA AL IMPOSTOR ANTES DE QUE ELIMINE A TODOS!</p>
+          <button onclick="añadirAlCarrito('Among us')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/nintendo6.jpg" alt="Legen of Zelda">
+        </div>
+        <div class="card-back">
+          <p>AVENTURA ÉPICA CON LINK. ¡EXPLORA UN MUNDO INMENSO Y DERROTA A LAS FUERZAS DEL MAL!</p>
+          <button onclick="añadirAlCarrito('Legen of Zelda')">Añadir al carrito</button>
+          <p class="precio">$29.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/nintendo2.jpg" alt="Mario Party">
+        </div>
+        <div class="card-back">
+          <p>JUEGA CONS TU AMIGOS A GRANDES DESAFIOS Y DIVERTIDOS PARA VER QUIEN GANA PRIMERO</p>
+          <button onclick="añadirAlCarrito(' Mario Party')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/nintendo7.jpg" alt="Minecraft">
+        </div>
+        <div class="card-back">
+          <p>JUEGO DE CONSTRUCCIÓN Y SUPERVIVENCIA. ¡CREA, EXPLORA Y SOBREVIVE EN UN MUNDO DE BLOQUES!</p>
+          <button onclick="añadirAlCarrito('Minecraft')">Añadir al carrito</button>
+          <p class="precio">$89.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/nintendo8.jpg" alt="Kirby Star Allies">
+        </div>
+        <div class="card-back">
+          <p>KIRBY EL ADORABLE HEROE ROSADO QUE DEBE SALVAR SU MUNDO DEL MAL </p>
+          <button onclick="añadirAlCarrito('Kirby Star Allies')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/nintendo9.jpg" alt="Super MARIO Galaxy">
+        </div>
+        <div class="card-back">
+          <p>SUPER MARIO GALAXY ES JUEGO DE MUNDO ABIERTO DONDE TENDRAS QUE DERROTAR A LOS JEFES QUE AN INVADIDO LOS PLANETAS PARA DERROTAR A BOWSER!</p>
+          <button onclick="añadirAlCarrito('Super Mario Galaxy')">Añadir al carrito</button>
+          <p class="precio">$59.99</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección PlayStation -->
+<section id="playstation" class="seccion hidden">
+  <h2>🎮 Juegos de PlayStation</h2>
+  <div class="contenedor-juegos">
+    <!-- Tarjeta 1 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/play1.jpg" alt="FIFA25">
+        </div>
+        <div class="card-back">
+          <p>JUEGO DE FÚTBOL REALISTA. ¡VIVE LA EMOCIÓN DEL DEPORTE REY CON TUS EQUIPOS FAVORITOS!</p>
+          <button onclick="añadirAlCarrito('FIFA 25')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Tarjeta 2 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/play2.jpg" alt="FORTNITE">
+        </div>
+        <div class="card-back">
+          <p>BATTLE ROYALE CON CONSTRUCCIÓN. ¡SOBREVIVE Y CONVIÉRTETE EN EL ÚLTIMO EN PIE!</p>
+          <button onclick="añadirAlCarrito('FORTNITE')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Tarjetas 3 al 10 -->
+    <!-- Ejemplo Tarjeta 3 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/play3.jpg" alt="GRAND THEFT AUTO V">
+        </div>
+        <div class="card-back">
+          <p>MUNDO ABIERTO CON ACCIÓN Y AVENTURAS. ¡VIVE LA VIDA DE UN CRIMINAL EN LOS SANTOS!</p>
+          <button onclick="añadirAlCarrito('GRAND THEFT AUTO V')">Añadir al carrito</button>
+          <p class="precio">$99.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/play4.jpg" alt="MORTAL KOMBAT 1">
+        </div>
+        <div class="card-back">
+          <p>JUEGO DE LUCHAS SANGRIENTAS. ¡ELIGE TU LUCHADOR Y REALIZA FATALITIES ESPECTACULARES!</p>
+          <button onclick="añadirAlCarrito('MORTAL KOMBAT 1')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/play5.jpg" alt="CALL OF DUTY BLACK OPS III">
+        </div>
+        <div class="card-back">
+          <p>SHOOTER EN PRIMERA PERSONA. ¡COMBATE INTENSO EN MULTIJUGADOR Y CAMPAÑA!</p>
+          <button onclick="añadirAlCarrito('CALL OF DUTY BLACK OPS III')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/play6.jpg" alt="RED DEAD REDEMPTION">
+        </div>
+        <div class="card-back">
+          <p>AVENTURA DEL LEJANO OESTE. ¡VIVE COMO UN FORAJIDO EN UN MUNDO INMENSO Y DETALLADO!</p>
+          <button onclick="añadirAlCarrito('RED DEAD REDEMPTION')">Añadir al carrito</button>
+          <p class="precio">$49.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/play7.jpg" alt="GOD O WAR RAGNAROK">
+        </div>
+        <div class="card-back">
+          <p>AVENTURA ÉPICA CON KRATOS. ¡ENFRENTA A DIOSES NÓRDICOS EN COMBATES INTENSOS!</p>
+          <button onclick="añadirAlCarrito('GOD O WAR RAGNAROK')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/play8.jpg" alt="ROCKET LEAGUE">
+        </div>
+        <div class="card-back">
+          <p>FÚTBOL CON COCHES VOLADORES. ¡ANOTA GOLES ESPECTACULARES EN ESTE JUEGO ÚNICO!</p>
+          <button onclick="añadirAlCarrito('ROCKET LEAGUE')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/play9.jpg" alt="FALL GUYS">
+        </div>
+        <div class="card-back">
+          <p>BATTLE ROYALE DE OBSTÁCULOS. ¡SUPERA RETOS DIVERTIDOS Y LLEGA PRIMERO A LA META!</p>
+          <button onclick="añadirAlCarrito('FALL GUYS')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/play10.jpg" alt="DRAGON BALL">
+        </div>
+        <div class="card-back">
+          <p>LUCHAS ÉPICAS CON PERSONAJES ICÓNICOS. ¡REVIVE LOS MEJORES MOMENTOS DE LA SERIE!</p>
+          <button onclick="añadirAlCarrito('DRAGON BALL')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Repite hasta PlayStation 10 -->
+  </div>
+</section>
+<!-- Sección Xbox -->
+<section id="xbox" class="seccion hidden">
+  <h2>🎮 Juegos de Xbox</h2>
+  <div class="contenedor-juegos">
+    <!-- Tarjeta 1 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/xbox1.jpg" alt="Dragon ball z:Battle of z">
+        </div>
+        <div class="card-back">
+          <p>LUCHAS EN EQUIPO CON PERSONAJES DE DRAGON BALL. ¡COMBINA ATAQUES PARA DERROTAR A TUS ENEMIGOS!L </p>
+          <button onclick="añadirAlCarrito('Dragon ball z: Battle of z ')">Añadir al carrito</button>
+          <p class="precio">$69.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Tarjeta 2 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/xbox2.jpg" alt="Assassin's creed">
+        </div>
+        <div class="card-back">
+          <p>AVENTURA HISTÓRICA CON SIGILO. ¡EXPLORA ÉPOCAS PASADAS Y DESENTRAÑA CONSPIRACIONES!</p>
+          <button onclick="añadirAlCarrito('Assasin s')">Añadir al carrito</button>
+          <p class="precio">$29.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Tarjetas 3 al 10 -->
+    <!-- Ejemplo tarjeta 3 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/xbox3.jpg" alt="Forza Horizon 5">
+        </div>
+        <div class="card-back">
+          <p>CARRERAS EN MUNDO ABIERTO. ¡CONDUCE LOS MEJORES AUTOS EN ESCENARIOS ESPECTACULARES!</p>
+          <button onclick="añadirAlCarrito('Forza Horizon 5')">Añadir al carrito</button>
+          <p class="precio">$79.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/xbox4.jpg" alt="Crash bandicoot 4 its About time">
+        </div>
+        <div class="card-back">
+          <p>PLATAFORMAS CLÁSICAS CON GRÁFICOS MODERNOS. ¡SUPERA NIVELES LLENOS DE RETOS Y ENEMIGOS!</p>
+          <button onclick="añadirAlCarrito('Crash bandicoot 4 its About time')">Añadir al carrito</button>
+          <p class="precio">$19.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/xbox5.jpg" alt="Ghostbusters">
+        </div>
+        <div class="card-back">
+          <p>AVENTURA BASADA EN LA PELÍCULA. ¡ÚNETE A LOS CAZAFANTASMAS Y CAPTURA ESPÍRITUS!</p>
+          <button onclick="añadirAlCarrito('Ghostbusters')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/xbox.6.jpg" alt="HALO">
+        </div>
+        <div class="card-back">
+          <p>SHOOTER ICÓNICO DE CIENCIA FICCIÓN. ¡VIVE LA HISTORIA DEL JEFE MAESTRO Y COMBATE ALIENÍGENAS! </p>
+          <button onclick="añadirAlCarrito('Xbox Juego 6')">Añadir al carrito</button>
+          <p class="precio">$59.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/xbox7.jpg" alt="INJUSTICE">
+        </div>
+        <div class="card-back">
+          <p>LUCHAS CON SUPERHÉROES DE DC. ¡ELIGE TU PERSONAJE Y DEMUESTRA QUIÉN ES EL MÁS FUERTE!</p>
+          <button onclick="añadirAlCarrito('INJUSTICE')">Añadir al carrito</button>
+          <p class="precio">$79.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/xbox8.jpg" alt="Resident Evil 3">
+        </div>
+        <div class="card-back">
+          <p>SURVIVAL HORROR CON ACCIÓN. ¡SOBREVIVE A LOS ZOMBIS Y ESCAPA DE NEMESIS!</p>
+          <button onclick="añadirAlCarrito('Resident Evil 3')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/xbox9.jpg" alt="Mortal Kombat 11">
+        </div>
+        <div class="card-back">
+          <p>LUCHAS SANGRIENTAS Y BRUTALES. ¡REALIZA COMBOS ESPECTACULARES Y FATALITIES! </p>
+          <button onclick="añadirAlCarrito('Mortal Kombat 11')">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/xbox10.jpg" alt="Mortal Kombat X">
+        </div>
+        <div class="card-back">
+          <p>LUCHAS INTENSAS CON GRÁFICOS IMPRESIONANTES. ¡EL JUEGO DE PELEAS MÁS BRUTAL!</p>
+          <button onclick="añadirAlCarrito('Mortal Kombat X')">Añadir al carrito</button>
+          <p class="precio">$59.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Repite hasta Xbox 10 -->
+  </div>
+</section>
+
+<!-- Sección PC -->
+<section id="pc" class="seccion hidden">
+  <h2>🎮 Juegos de PC</h2>
+  <div class="contenedor-juegos">
+    <!-- Tarjeta 1 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/valorant.jpg" alt="Valorant">
+        </div>
+        <div class="card-back">
+          <p>SHOOTER TÁCTICO 5 VS 5. ¡ELIGE TU AGENTE Y DEMUESTRA TU HABILIDAD EN COMBATES ESTRATÉGICOS!</p>
+          <button onclick="añadirAlCarrito('Valorant')">Añadir al carrito</button>
+          <p class="precio">$99.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Tarjeta 2 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/residen.jpg" alt="Resident Evil 2">
+        </div>
+        <div class="card-back">
+          <p>SURVIVAL HORROR CLÁSICO. ¡SOBREVIVE A LOS ZOMBIS EN RACCOON CITY Y DESCUBRE SUS SECRETOS!</p>
+          <button onclick="añadirAlCarrito('Resdident Evil 2')">Añadir al carrito</button>
+          <p class="precio">$69.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Tarjetas 3 al 10 -->
+    <!-- Ejemplo tarjeta 3 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/sepa.jpg" alt="Assasing">
+        </div>
+        <div class="card-back">
+          <p>AVENTURA DE SIGILO Y ACCIÓN. ¡CONVIÉRTETE EN UN ASESINO Y ELIMINA A TUS OBJETIVOS! </p>
+          <button onclick="añadirAlCarrito('Assasing')">Añadir al carrito</button>
+          <p class="precio">$49.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/bodrioduty.jpg" alt="Call of Duty">
+        </div>
+        <div class="card-back">
+          <p>SHOOTER DE GUERRA INTENSO. ¡VIVE BATALLAS ÉPICAS EN MULTIJUGADOR Y CAMPAÑA!</p>
+          <button onclick="añadirAlCarrito('Call of duty')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/pug.jpg" alt="Pubg">
+        </div>
+        <div class="card-back">
+          <p>BATTLE ROYALE REALISTA. ¡ENCUENTRA ARMAS, SOBREVIVE Y CONVIÉRTETE EN EL ÚLTIMO EN PIE!</p>
+          <button onclick="añadirAlCarrito('Pubg')">Añadir al carrito</button>
+          <p class="precio">$79.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/maincra.jpg" alt="Minecraft">
+        </div>
+        <div class="card-back">
+          <p>JUEGO DE CONSTRUCCIÓN Y AVENTURAS. ¡CREA, EXPLORA Y SOBREVIVE EN UN MUNDO DE BLOQUES!</p>
+          <button onclick="añadirAlCarrito('Minecraft')">Añadir al carrito</button>
+          <p class="precio">$69.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/death.jpg" alt="Dead by Daylight">
+        </div>
+        <div class="card-back">
+          <p>HORROR ASIMÉTRICO 4VS1. ¡ESCAPA DEL ASESINO O CAZA A LOS SUPERVIVIENTES!</p>
+          <button onclick="añadirAlCarrito('Dead by Daylight')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/tazas.jpg" alt="Cuphead">
+        </div>
+        <div class="card-back">
+          <p>JUEGO DE PLATAFORMAS CON ESTILO RETRO. ¡SUPERA JEFES DIFÍCILES Y RECUPERA LOS CONTRATOS!</p>
+          <button onclick="añadirAlCarrito('Cuphead')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/lol.jpg" alt="League of Legends">
+        </div>
+        <div class="card-back">
+          <p>MOBA ESTRATÉGICO 5VS5. ¡ELIGE TU CAMPEÓN Y DESTRUYE EL NEXO ENEMIGO!</p>
+          <button onclick="añadirAlCarrito('League of Legends')">Añadir al carrito</button>
+          <p class="precio">$39.99</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/sanzz.jpg" alt="GRAND THEFT AUTO SAN ANDREAS">
+        </div>
+        <div class="card-back">
+          <p>MUNDO ABIERTO CLÁSICO. ¡VIVE LA VIDA DE UN GÁNGSTER EN LOS ÁNGELES DE LOS 90! </p>
+          <button onclick="añadirAlCarrito('GRAND THEFT AUTO SAN ANDREAS')">Añadir al carrito</button>
+          <p class="precio">$49.99</p>
+        </div>
+      </div>
+    </div>
+    <!-- Repite hasta PC 10 -->
+  </div>
+</section>
+<!-- Sección Sobre Nosotros -->
+<section id="nosotros" class="seccion hidden">
+    <div class="nosotros-container">
+      <h2>Conoce a Nuestro Equipo</h2>
+      
+      <div class="fundadores-grid">
+        <!-- Fundador 1 -->
+        <div class="fundador-card">
+          <div class="fundador-img" style="background-image: url('assets/Gregory\ house.jpg');"></div>
+          <div class="fundador-info">
+            <h3>Fernando Adonay Palacios Sosa</h3>
+            <p class="fundador-rol">Creador de la pagina</p>
+            <p class="fundador-desc">
+          un pogramador brillante, famoso por resolver casos con java script que los demás consideran complicados y algunas veces descrito como cascarrabias, dado a su peculiar forma de relacionarse con los demás.
+            </p>
+          </div>
+        </div>
+
+        <!-- Fundador 2 -->
+        <div class="fundador-card">
+          <div class="fundador-img" style="background-image: url('assets/NELSON.jpg');"></div>
+          <div class="fundador-info">
+            <h3> Nelson Fernando Alvarado Rivas</h3>
+            <p class="fundador-rol">Creador de la pagina</p>
+            <p class="fundador-desc">
+              Amante de los videjuegos de mortal kombat y de efootball y de legends legend y ayudante del lider.
+            </p>
+          </div>
+        </div>
+
+        <!-- Fundador 3 -->
+        <div class="fundador-card">
+          <div class="fundador-img" style="background-image: url('assets/aymigatitomiaumiau.jpg');"></div>
+          <div class="fundador-info">
+            <h3> Jairo Ismael Marmol Martinez</h3>
+            <p class="fundador-rol">Creador de la pagina</p>
+            <p class="fundador-desc">
+              Amante de los videjuegos de play y ayudante del lider.
+            </p>
+          </div>
+        </div>
+
+        <!-- Fundador 4 -->
+        <div class="fundador-card">
+          <div class="fundador-img" style="background-image: url('assets/rene.jpg');"></div>
+          <div class="fundador-info">
+            <h3> Rene Alexander Avalos Guillen </h3>
+            <p class="fundador-rol">Creador de la pagina</p>
+            <p class="fundador-desc">
+              Amante de los de nintendo como mario kart tambien de juegos de play mortal kombat y FIFA.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Mision Vision y Lema -->
+      <div class="nosotros-mision">
+        <h3>Nuestra Misión</h3>
+        <p>En GameOver Store nos dedicamos a conectar a los gamers con los mejores títulos, ofreciendo calidad, asesoramiento experto y servicio personalizado para que disfrutes al máximo tu experiencia de juego.</p>
+      </div>
+
+      <div class="nosotros-vision">
+        <h3>Nuestra Visión</h3>
+        <p>Ser la tienda gamer líder en la región, reconocida por nuestra excelencia en servicio al cliente, variedad de productos y comunidad de jugadores apasionados.</p>
+      </div>
+
+      <div class="creadores-footer">
+        <p>Somos los creadores y fundadores de GameOver Store, unidos por nuestra pasión por los videojuegos y el compromiso con la comunidad gamer.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Sección Contáctanos -->
+<section id="contacto" class="seccion hidden">
+      <h2>Contáctanos</h2>
+      <form id="formulario-contacto" onsubmit="event.preventDefault(); alert('Mensaje enviado.')">
+        <label>Correo:</label><br>
+        <input type="email" required><br>
+        <label>Dieccion:</label><br>
+        <input type="direc" required><br>
+        <label>Teléfono:</label><br>
+        <input type="tel" required><br>
+        <label>Mensaje:</label><br>
+        <textarea rows="5" required></textarea><br>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+<!-- blog -->
+<section id="Blog" class="seccion hidden">
+  <h2> Blog Gamer</h2>
+  <div class="blog-container">
+    <!-- Artículo 1 -->
+    <article class="blog-article">
+      <div class="blog-image" style="background-image: url('assets/blog1.jpg');"></div>
+      <div class="blog-content">
+        <h3>¿Cómo elegir tu próxima consola de videojuegos?</h3>
+        <p class="blog-meta">Publicado el 15/05/2025 | Por Adonay Sosa</p>
+        <p>Comparativa entre PlayStation, Xbox y Nintendo Switch. Te ayudamos a decidir cuál se adapta mejor a tu estilo de juego y presupuesto...</p>
+        <a href="#" class="blog-link">Leer más →</a>
+      </div>
+    </article>
+    <!-- Artículo 2 -->
+    <article class="blog-article">
+      <div class="blog-image" style="background-image: url('assets/blog2.jpg');"></div>
+      <div class="blog-content">
+        <h3>Los 10 beneficios de jugar videojuegos</h3>
+        <p class="blog-meta">Publicado el 10/05/2025 | Por Nelson Alvarado</p>
+        <p>Contrario a lo que muchos piensan, los videojuegos mejoran habilidades cognitivas, coordinación y trabajo en equipo. Conoce los beneficios avalados por estudios...</p>
+        <a href="#" class="blog-link">Leer más →</a>
+      </div>
+    </article>
+    <!-- Artículo 3 -->
+    <article class="blog-article">
+      <div class="blog-image" style="background-image: url('assets/blog3.jpg');"></div>
+      <div class="blog-content">
+        <h3>Guía para mantener tu consola en perfecto estado</h3>
+        <p class="blog-meta">Publicado el 05/05/2025 | Por Alexander Avalos</p>
+        <p>Aprende los cuidados esenciales para prolongar la vida de tu consola: desde limpieza adecuada hasta control de temperatura ideal...</p>
+        <a href="#" class="blog-link">Leer más →</a>
+      </div>
+    </article>
+  </div>
+</section>
+<!-- Galeria -->
+</section>
+<section id="galeria" class="seccion hidden">
+  <h2>🎞 Galería de Imágenes</h2>
+
+  <div class="cinta-wrapper top">
+    <div class="cinta cinta-nintendo">
+      <img src="assets/nintendo1.jpg" alt="">
+      <img src="assets/nintendo2.jpg" alt="">
+      <img src="assets/nintendo3.jpg" alt="">
+      <img src="assets/nintendo4.jpg" alt="">
+      <img src="assets/nintendo5.jpg" alt="">
+      <img src="assets/nintendo6.jpg" alt="">
+      <img src="assets/nintendo7.jpg" alt="">
+      <img src="assets/nintendo8.jpg" alt="">
+      <img src="assets/nintendo9.jpg" alt="">
+      <img src="assets/nintendo10.jpg" alt="">
+    </div>
+  </div>
+  <div class="cinta-wrapper bottom">
+    <div class="cinta cinta-playstation">
+      <img src="assets/play1.jpg" alt="">
+      <img src="assets/play2.jpg" alt="">
+      <img src="assets/play3.jpg" alt="">
+      <img src="assets/play4.jpg" alt="">
+      <img src="assets/play5.jpg" alt="">
+      <img src="assets/play6.jpg" alt="">
+      <img src="assets/play7.jpg" alt="">
+      <img src="assets/play8.jpg" alt="">
+      <img src="assets/play9.jpg" alt="">
+      <img src="assets/play10.jpg" alt="">
+    </div>
+  </div>
+</section>
+<!-- Sección de Comentarios -->
+<section id="comentarios" class="seccion hidden">
+  <h2>💬 Comentarios de Clientes</h2>
+  
+  <div class="formulario-comentario">
+    <h3>Deja tu reseña</h3>
+    <form id="nuevo-comentario">
+      <div class="form-group">
+        <label for="nombre-comentario">Nombre:</label>
+        <input type="text" id="nombre-comentario" required>
+      </div>
+      <div class="form-group">
+        <label for="calificacion-comentario">Calificación:</label>
+        <select id="calificacion-comentario" required>
+          <option value="">Selecciona...</option>
+          <option value="5">★★★★★ - Excelente</option>
+          <option value="4">★★★★☆ - Muy bueno</option>
+          <option value="3">★★★☆☆ - Bueno</option>
+          <option value="2">★★☆☆☆ - Regular</option>
+          <option value="1">★☆☆☆☆ - Malo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="texto-comentario">Tu comentario:</label>
+        <textarea id="texto-comentario" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn-enviar-comentario">Enviar Comentario</button>
+    </form>
+  </div>
+
+  <div class="contenedor-comentarios">
+    <!-- Comentario 1 -->
+    <div class="comentario-box">
+      <div class="comentario-header">
+        <span class="comentario-autor">Carlos Gamer</span>
+        <span class="comentario-fecha">15/06/2025</span>
+      </div>
+      <div class="comentario-texto">
+        "¡La mejor tienda gamer! Compré Mario Kart 8 y llegó antes de lo esperado. El servicio al cliente es excelente."
+      </div>
+      <div class="comentario-estrellas">★★★★★</div>
+    </div>
+
+    <!-- Comentario 2 -->
+    <div class="comentario-box">
+      <div class="comentario-header">
+        <span class="comentario-autor">Ana Player</span>
+        <span class="comentario-fecha">12/06/2025</span>
+      </div>
+      <div class="comentario-texto">
+        "Gran variedad de juegos para PlayStation 5. Los precios son competitivos y las ofertas son reales, no como en otras tiendas."
+      </div>
+      <div class="comentario-estrellas">★★★★☆</div>
+    </div>
+
+    <!-- Comentario 3 -->
+    <div class="comentario-box">
+      <div class="comentario-header">
+        <span class="comentario-autor">Luis Streamer</span>
+        <span class="comentario-fecha">10/06/2025</span>
+      </div>
+      <div class="comentario-texto">
+        "Compré mis juegos de  Xbox  aquí y todo fue perfecto. La entrega fue rápida y los videjuegos me llegaron en buen estado."
+      </div>
+      <div class="comentario-estrellas">★★★★★</div>
+    </div>
+
+    <!-- Comentario 4 -->
+    <div class="comentario-box">
+      <div class="comentario-header">
+        <span class="comentario-autor">Marta Pro</span>
+        <span class="comentario-fecha">08/06/2025</span>
+      </div>
+      <div class="comentario-texto">
+        "Los juegos para PC son de primera calidad. y llegaron en poco tiempo y empece a jugar."
+      </div>
+      <div class="comentario-estrellas">★★★★★</div>
+    </div>
+
+    <!-- Comentario 5 -->
+    <div class="comentario-box">
+      <div class="comentario-header">
+        <span class="comentario-autor">Jorge eSports</span>
+        <span class="comentario-fecha">05/06/2025</span>
+      </div>
+      <div class="comentario-texto">
+        "El envío fue rápido pero la caja llegó un poco dañada. Por suerte el juego estaba bien. Podrían mejorar el embalaje."
+      </div>
+      <div class="comentario-estrellas">★★★☆☆</div>
+    </div>
+
+    <!-- Comentario 6 -->
+    <div class="comentario-box">
+      <div class="comentario-header">
+        <span class="comentario-autor">Nelson mobile</span>
+        <span class="comentario-fecha">02/06/2025</span>
+      </div>
+      <div class="comentario-texto">
+        "¡Me encanta esta tienda! Siempre tienen los juegos más nuevos antes que nadie. Ya he comprado 5 juegos y todos perfectos."
+      </div>
+      <div class="comentario-estrellas">★★★★★</div>
+    </div>
+
+    <!-- Comentario 7 -->
+    <div class="comentario-box">
+      <div class="comentario-header">
+        <span class="comentario-autor">Diego PC</span>
+        <span class="comentario-fecha">30/05/2025</span>
+      </div>
+      <div class="comentario-texto">
+        "Buenos precios en los juegos. Las encontré más baratas que en otros sitios y son originales."
+      </div>
+      <div class="comentario-estrellas">★★★★☆</div>
+    </div>
+
+    <!-- Comentario 8 -->
+    <div class="comentario-box">
+      <div class="comentario-header">
+        <span class="comentario-autor">Laura Nintendo</span>
+        <span class="comentario-fecha">28/05/2025</span>
+      </div>
+      <div class="comentario-texto">
+        "Compré juego de Nintendo para mi switch. Me preocupaba que fuera pirata pero todo está perfecto, hasta la garantía."
+      </div>
+      <div class="comentario-estrellas">★★★★★</div>
+    </div>
+
+    <!-- Comentario 9 -->
+    <div class="comentario-box">
+      <div class="comentario-header">
+        <span class="comentario-autor">Pedro Retro</span>
+        <span class="comentario-fecha">25/05/2025</span>
+      </div>
+      <div class="comentario-texto">
+        "La sección de juegos de xbox es increíble. Encontré varios clásicos que no encontraba en ningún otro lado."
+      </div>
+      <div class="comentario-estrellas">★★★★★</div>
+    </div>
+  </div>
+</section>
+<!-- Pie de página -->
+<footer>
+    <p>© 2025 GameOver Store - Fernando Palacios</p>
+    <p>📧 fernandofnaf8@gmail.com | 📞 +503 7987-2402</p>
+    <div class="social">
+      <a href="#"><img src="assets/facebook1.jpg" alt="Facebook"></a>
+      <a href="#"><img src="assets/instagram.jpeg" alt="Instagram"></a>
+      <a href="#"><img src="assets/twitter1.jpg" alt="Twitter"></a>
+      <a href="#"><img src="assets/youtube1.jpg" alt="YouTube"></a>
+    </div>
+  </footer>
+
+<!-- Checkbox oculto para mostrar/ocultar la política -->
+<input type="checkbox" id="privacy-toggle" class="hidden-toggle">
+
+<!-- Modal de Política y Privacidad -->
+<div class="privacy-modal">
+  <div class="privacy-content">
+    <img src="assets/cookies.jpg" alt="Galleta" class="cookie-icon">
+    <h2>Política de Privacidad</h2>
+    <p>En GameOver Store respetamos tu privacidad. Usamos cookies para mejorar tu experiencia.</p>
+    <p>Al continuar navegando, aceptas el uso de cookies para personalizar contenido y anuncios.</p>
+    <label for="privacy-toggle" class="accept-btn">Aceptar</label>
+  </div>
+</div>
+
+<!-- 🎵 Música de fondo con botón discreto gamer -->
+<audio id="bg-music" loop style="display:none;">
+    <source src="music/Wii Shop Channel Main Theme (HQ).mp3" type="audio/mpeg">
+  </audio>
+<script>
+  const carrito = [];
+  function enterSite() {
+    document.getElementById("welcomeScreen").style.display = "none";
+    document.querySelector(".navbar").classList.remove("hidden");
+    document.querySelector(".content").classList.remove("hidden");
+    document.getElementById("bg-music").play();
+    document.getElementById("music-toggle").textContent = "🔊";
+  }
+
+  function mostrarSeccion(seccion) {
+    document.querySelectorAll('.seccion').forEach(s => {
+      s.classList.toggle('hidden', s.id !== seccion);
+    });
+  }
+
+  function mostrarSeccionAnimada(seccion) {
+    mostrarSeccion(seccion);
+    document.getElementById(seccion).classList.add("categorias-animada");
+    setTimeout(() => {
+      document.getElementById(seccion).classList.remove("categorias-animada");
+    }, 500);
+  }
+
+  function mostrarCategoria(categoria) {
+    const secciones = ['nintendo', 'playstation', 'xbox', 'pc'];
+    secciones.forEach(id => {
+      const sec = document.getElementById(id);
+      if (sec) sec.classList.add("hidden");
+    });
+
+    const activa = document.getElementById(categoria);
+    if (activa) {
+      activa.classList.remove("hidden");
+      activa.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function toggleCarrito() {
+    document.getElementById("carrito").classList.toggle("hidden");
+  }
+
+  function añadirAlCarrito(juego) {
+    carrito.push(juego);
+    actualizarCarrito();
+  }
+
+  function actualizarCarrito() {
+    const lista = document.getElementById("carrito-lista");
+    lista.innerHTML = '';
+    carrito.forEach(j => {
+      const li = document.createElement("li");
+      li.textContent = j;
+      lista.appendChild(li);
+    });
+  }
+
+  function pagar() {
+    alert("¡Gracias por tu compra!");
+    carrito.length = 0;
+    actualizarCarrito();
+  }
+
+  function toggleMusic() {
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-toggle");
+    if (music.paused) {
+      music.play();
+      btn.textContent = "🔊";
+    } else {
+      music.pause();
+      btn.textContent = "🎵";
+    }
+  }
+
+  function cambiarVolumen(valor) {
+    document.getElementById("bg-music").volume = valor;
+  }
+
+  function toggleMenu() {
+    const menu = document.querySelector('.menu');
+    menu.classList.toggle('active');
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("click", () => card.classList.toggle("flipped"));
+    });
+
+    // -----------------------------
+    // NUEVO CÓDIGO: Registro y Comentarios
+    // -----------------------------
+
+    const photoInput = document.getElementById('photo');
+    const preview = document.getElementById('preview');
+
+    if (photoInput && preview) {
+      photoInput.addEventListener('change', function () {
+        const file = this.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+      registerForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Usuario registrado con éxito 🕹️');
+      });
+    }
+
+    const commentForm = document.getElementById('commentForm');
+    if (commentForm) {
+      commentForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const commentText = document.getElementById('comment').value.trim();
+        if (commentText) {
+          const commentDiv = document.createElement('div');
+          commentDiv.className = 'comment';
+          commentDiv.textContent = commentText;
+          document.getElementById('commentsList').prepend(commentDiv);
+          document.getElementById('comment').value = '';
+        }
+      });
+    }
+  });
+  // Agregar esto al final del script existente
+document.getElementById('nuevo-comentario').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const nombre = document.getElementById('nombre-comentario').value;
+  const calificacion = document.getElementById('calificacion-comentario').value;
+  const texto = document.getElementById('texto-comentario').value;
+  
+  if (nombre && calificacion && texto) {
+    const comentarioBox = document.createElement('div');
+    comentarioBox.className = 'comentario-box';
+    
+    const estrellas = '★'.repeat(calificacion) + '☆'.repeat(5 - calificacion);
+    
+    const hoy = new Date();
+    const fecha = hoy.toLocaleDateString('es-ES');
+    
+    comentarioBox.innerHTML = `
+      <div class="comentario-header">
+        <span class="comentario-autor">${nombre}</span>
+        <span class="comentario-fecha">${fecha}</span>
+      </div>
+      <div class="comentario-texto">"${texto}"</div>
+      <div class="comentario-estrellas">${estrellas}</div>
+    `;
+    
+    document.querySelector('.contenedor-comentarios').prepend(comentarioBox);
+    
+    // Limpiar el formulario
+    document.getElementById('nuevo-comentario').reset();
+    
+    // Mostrar mensaje de éxito
+    alert('¡Gracias por tu comentario!');
+  }
+});
+</script>
+
+  
+</body>
+</html>
